@@ -8,6 +8,7 @@
 #include "CMDshell.h"
 #include "USBserial.h"
 #include "LED.h"
+#include "AnalogIN_B1.h"
 
 constexpr std::uint8_t CMDshell::CMD_LIST[CMDshell::NUMBER_OF_COMMANDS][CMDshell::MAX_NUMBER_OF_CHARS_PER_COMMAND];
 
@@ -52,6 +53,18 @@ void CMDshell::parseCommand(std::string command)
 				answerString.operator+=(LED::executeShellCMD(" "));
 			else
 				answerString.operator+=(LED::executeShellCMD(command.substr(commandInList.size()+1)));
+			answerString.operator +=("\n");
+			break;
+
+		case 2: //adc
+			answerString = "--------------------------------";
+			answerString.operator +=("\n ADC (Port B1) gets executed. Param: ");
+			answerString.operator +=(command.substr(commandInList.size()));
+			answerString.operator +=("\n");
+			if(command.size()==commandInList.size())
+				answerString.operator+=(AnalogIN_B1::executeShellCMD(" "));
+			else
+				answerString.operator+=(AnalogIN_B1::executeShellCMD(command.substr(commandInList.size()+1)));
 			answerString.operator +=("\n");
 			break;
 
