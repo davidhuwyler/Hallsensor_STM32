@@ -9,6 +9,7 @@
 #include "USBserial.h"
 #include "LED.h"
 #include "AnalogIN_B1.h"
+#include "PWMcontroller.h"
 
 constexpr std::uint8_t CMDshell::CMD_LIST[CMDshell::NUMBER_OF_COMMANDS][CMDshell::MAX_NUMBER_OF_CHARS_PER_COMMAND];
 
@@ -65,6 +66,18 @@ void CMDshell::parseCommand(std::string command)
 				answerString.operator+=(AnalogIN_B1::executeShellCMD(" "));
 			else
 				answerString.operator+=(AnalogIN_B1::executeShellCMD(command.substr(commandInList.size()+1)));
+			answerString.operator +=("\n");
+			break;
+
+		case 3: //pwm
+			answerString = "--------------------------------";
+			answerString.operator +=("\n PWM gets executed. Param: ");
+			answerString.operator +=(command.substr(commandInList.size()));
+			answerString.operator +=("\n");
+			if(command.size()==commandInList.size())
+				answerString.operator+=(PWMcontroller::executeShellCMD(" "));
+			else
+				answerString.operator+=(PWMcontroller::executeShellCMD(command.substr(commandInList.size()+1)));
 			answerString.operator +=("\n");
 			break;
 

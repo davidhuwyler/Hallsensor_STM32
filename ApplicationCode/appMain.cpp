@@ -8,11 +8,11 @@
 #include "appMain.h"
 #include "USBserial.h"
 #include "LED.h"
+#include "PWMcontroller.h"
 
 
 void	appMain()
 {
-	//LED::toggle();
 }
 
 void sendRun()

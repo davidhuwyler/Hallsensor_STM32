@@ -21,12 +21,13 @@ public:
 private:
 	constexpr static std::uint16_t LINE_BUFFER_SIZE = 200;
 
-	constexpr static std::uint8_t NUMBER_OF_COMMANDS = 3;
+	constexpr static std::uint8_t NUMBER_OF_COMMANDS = 4;
 	constexpr static std::uint8_t MAX_NUMBER_OF_CHARS_PER_COMMAND = 15;
 	constexpr static std::uint8_t CMD_LIST[NUMBER_OF_COMMANDS][MAX_NUMBER_OF_CHARS_PER_COMMAND] = {
 			"help",
 			"led" ,
-			"adc"
+			"adc",
+			"pwm"
 	};
 	static void executeCMD_help();
 };
