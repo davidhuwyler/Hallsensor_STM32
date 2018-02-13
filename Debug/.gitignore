@@ -9,3 +9,6 @@
 /objects.mk
 /sources.mk
 /USBcdc.bin
+/Hallsensor_STM32.bin
+/Hallsensor_STM32.elf
+/output.map
