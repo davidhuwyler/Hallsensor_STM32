@@ -10,7 +10,7 @@
 //init
 uint32_t MagnetController::setPoint = 2500;
 double MagnetController::p = 0.55;
-double MagnetController::i = 0.58;
+double MagnetController::i = 0.572;
 double MagnetController::d = 0.458;
 MiniPID MagnetController::pid = MiniPID(MagnetController::p,MagnetController::i,MagnetController::d);
 
