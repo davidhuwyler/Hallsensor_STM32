@@ -9,10 +9,12 @@
 #include "USBserial.h"
 #include "LED.h"
 #include "PWMcontroller.h"
+#include "MagnetController.h"
 
 
 void	appMain()
 {
+	MagnetController::CalcOutput();
 }
 
 void sendRun()

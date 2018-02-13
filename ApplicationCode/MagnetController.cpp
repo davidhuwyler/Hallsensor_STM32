@@ -8,16 +8,15 @@
 #include <MagnetController.h>
 
 //init
-uint32_t MagnetController::setPoint = 3050;
-double MagnetController::p = 0.1;
-double MagnetController::i = 0.01;
-double MagnetController::d = 0.0;
+uint32_t MagnetController::setPoint = 2500;
+double MagnetController::p = 0.55;
+double MagnetController::i = 0.58;
+double MagnetController::d = 0.458;
 MiniPID MagnetController::pid = MiniPID(MagnetController::p,MagnetController::i,MagnetController::d);
 
 void MagnetController::CalcOutput()
 {
 	pid.setOutputLimits(0,255);
-	pid.setOutputRampRate(10);
 	PWMcontroller::setPWM_A0((uint8_t)pid.getOutput((double)AnalogIN_B1::getValue(),(double)MagnetController::setPoint));
 }
 
