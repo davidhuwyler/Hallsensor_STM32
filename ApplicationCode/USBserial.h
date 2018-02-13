@@ -21,7 +21,7 @@ public:
 	static void sendLine(std::string line);
 
 private:
-	constexpr static std::uint16_t BUFFER_SIZE = 200;
+	constexpr static std::uint16_t BUFFER_SIZE = 500;
 	//static std::vector<std::uint8_t> data = std::vector(BUFFER_SIZE);
 
 	virtual ~USBserial();
